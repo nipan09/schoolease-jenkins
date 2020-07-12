@@ -8,9 +8,7 @@ pipeline{
 			{
 				echo "Building the project.."
 				sh'''
-                    source bin/activate
-					pip3 install -r requirements.txt
-				    deactivate
+					python3 -m pip install -r requirements.txt
                 '''
 			}
 		}
@@ -20,9 +18,7 @@ pipeline{
 			{
 				echo "Collecting static files.."
 				sh'''
-					source bin/activate
 					python3 manage.py collectstatic --noinput
-				    deactivate
 				'''
 			}
 		}
@@ -32,9 +28,7 @@ pipeline{
 			{
 				echo "Running Unit/Integration Tests.."
 				sh'''
-					source bin/activate
 					python3 manage.py test
-					deactivates
 				'''
 			}
 		}
