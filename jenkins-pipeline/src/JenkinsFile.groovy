@@ -34,7 +34,7 @@ pipeline{
 				sh'''
 					source bin/activate
 					python3 manage.py test
-					deactivate
+					deactivates
 				'''
 			}
 		}
